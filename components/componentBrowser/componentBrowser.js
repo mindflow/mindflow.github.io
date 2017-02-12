@@ -30,12 +30,12 @@ class ComponentBrowser extends justright.Component{
 	
 	simpleEvent(){
 		this.clearChildren("result");
-		this.load('SimpleEvent','SimpleEvent','./demo-components/simpleEvent/simpleEvent.html','../demo-components/simpleEvent/simpleEvent.js');
+		this.load('SimpleEvent','SimpleEvent','./demo-components/simpleEvent/simpleEvent.html','./demo-components/simpleEvent/simpleEvent.js');
 	}
 	
 	addComponent(){
 		this.clearChildren("result");
-		this.load('AddComponent','AddComponent','../demo-components/addComponent/addComponent.html','./demo-components/addComponent/addComponent.js');
+		this.load('AddComponent','AddComponent','./demo-components/addComponent/addComponent.html','./demo-components/addComponent/addComponent.js');
 	}
 	
 	load(className,templateName,designUrl,codeUrl){
