@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="./css/foundation.css">
+	</head>
+	<body id="body">
+	    
+	</body>
+	<script src="./lib/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/coreutil-browser.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/xmlparser-browser.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/justright-browser.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/acs.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/mode-html.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/theme-monokai.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./components/componentBrowser/componentBrowser.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+		var loaded = false;
+		$(document).ajaxStop(function() {
+			if(!loaded){
+				document.getElementById("body").appendChild(new ComponentBrowser().getRootElement().getMappedElement());
+			}
+			loaded = true;
+		});
+	</script>
+</html>
