@@ -8,6 +8,7 @@ class ComponentBrowser extends justright.Component{
 		justright.events.listen("helloWorld",this,this.helloWorld);
 		justright.events.listen("simpleEvent",this,this.simpleEvent);
 		justright.events.listen("addComponent",this,this.addComponent);
+		justright.events.listen("globalEvent",this,this.globalEvent)
 		
 		this._className = null;
 		this._templateName = null;
@@ -38,21 +39,17 @@ class ComponentBrowser extends justright.Component{
 		this.load('AddComponent','AddComponent','./demo-components/addComponent/addComponent.html','./demo-components/addComponent/addComponent.js');
 	}
 	
+	globalEvent(){
+		this.clearChildren("result");
+		this.load('GlobalEvent','GlobalEvent','./demo-components/globalEvent/globalEvent.html','./demo-components/globalEvent/globalEvent.js');
+	}
+	
 	load(className,templateName,designUrl,codeUrl){
 		this._className = className;
 		this._templateName = templateName;
 		this._designUrl = designUrl;
 		this._codeUrl = codeUrl;
 		this.loadFiles(this._designUrl,this._codeUrl);
-		var loaded = false;
-		
-		var obj = this;	
-		$(document).ajaxStop(function() {
-			if(!loaded){
-				//obj.test();
-			}
-			loaded = true;
-		});
 	}
 	
 	test(){
