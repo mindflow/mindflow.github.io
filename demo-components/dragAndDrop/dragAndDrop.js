@@ -28,6 +28,9 @@ class DragAndDrop extends justright.Component{
 	    var leftMax = container.getBoundingClientRect().width - mappedElement.getBoundingClientRect().width;
 	    var topMin = 0;
 	    var leftMin = 0;
+	    if(event.clientY === 0 || event.clientX === 0){
+	        return;
+	    }
 	    if(topPos < topMin){
 	    	topPos = topMin;
 	    }
