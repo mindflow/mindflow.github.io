@@ -13,11 +13,11 @@ class GlobalEvent extends justright.Component{
 	}
 	
 	selectBox(){
-		this.get("box").getAttributes().set("style","background-color:red;display:inline-block;padding:10px;margin:10px;border:1px;border-style:solid;border-color:#888888");
+		this.get("box").getStyleAttribute().set("background-color","red");
 	}
 	
 	unselectBox(){
-		this.get("box").getAttributes().set("style","display:inline-block;padding:10px;margin:10px;border:1px;border-style:solid;border-color:#888888");
+		this.get("box").getStyleAttribute().set("background-color","white");
 	}
 	
 }
