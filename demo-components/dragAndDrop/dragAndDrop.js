@@ -4,23 +4,21 @@ class DragAndDrop extends justright.Component{
 		super(justright.templates.get("DragAndDrop"));
 		justright.events.listen("drag",this,this.drag);
 		justright.events.listen("drop",this,this.drop);
+		justright.events.listen("mousePos",this,this.mousePos);
+		this._clickedX = 0;
+		this._clickedY = 0;
 	}
 	
-	drag(event){
-	    //console.log(event.offsetX + " " + event.offsetY);
-	    //console.log(event);
+	mousePos(event){
+	    this._mousePosX = event.offsetX;
+	    this._mousePosY = event.offsetY;
 	}
 	
 	drop(event){
-	    event.preventDefault();
 	    var container = this.get("container").getMappedElement();
 	    var mappedElement = this.get("message").getMappedElement();
-	    console.log(event);
-	    //console.log(event.screenY + " " + event.screenX);
-	    mappedElement.style.top = event.clientY - container.getBoundingClientRect().top;
-	    mappedElement.style.left = event.clientX - container.getBoundingClientRect().left;
-	    
-	    
+	    mappedElement.style.top = event.clientY - container.getBoundingClientRect().top - this._mousePosY;
+	    mappedElement.style.left = event.clientX - container.getBoundingClientRect().left - this._mousePosX;
 	}
 	   
 }
