@@ -1,5 +1,5 @@
 <div>
-    <div id="container" ondragover="event.preventDefault()" style="position:relative;width:400px;height:300px;border:1px;background-color:blue" ondrop="drop">
-	    <div draggable="true" onmousedown="mousePos" style="position:absolute;width:100px;height:100px;background-color:yellow" id="message"></div>
+    <div id="container" ondragover="event.preventDefault()" style="overflow:hidden;position:relative;width:400px;height:300px;border:1px;background-color:blue">
+	    <div draggable="true" ondrag="drag" onmousedown="mousePos" style="position:absolute;width:100px;height:100px;background-color:yellow" id="message"></div>
 	</div>
 </div>
