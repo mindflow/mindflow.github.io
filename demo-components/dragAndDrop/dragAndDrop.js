@@ -4,8 +4,13 @@ class DragAndDrop extends justright.Component{
 		super(justright.templates.get("DragAndDrop"));
 		justright.events.listen("drag",this,this.drag);
 		justright.events.listen("mousePos",this,this.mousePos);
+		justright.events.listen("dragOver",this,this.dragOver);
 		this._mousePosX = 0;
 		this._mousePosY = 0;
+	}
+	
+	dragOver(event){
+		event.preventDefault();
 	}
 	
 	mousePos(event){
