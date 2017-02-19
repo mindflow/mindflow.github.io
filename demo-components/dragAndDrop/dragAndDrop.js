@@ -2,20 +2,16 @@ class DragAndDrop extends justright.Component{
 	
 	constructor(){
 		super(justright.templates.get("DragAndDrop"));
-		justright.events.listen("drag",this,this.drag);
-		justright.events.listen("drop",this,this.drop);
-		justright.events.listen("target",this,this.target);
-		justright.events.listen("flash",this,this.flash);
-		justright.events.listen("dragOver",this,this.dragOver);
+		justright.events.listen("select",this,this.select);
+		justright.events.listen("unselect",this,this.unselect);
+		justright.events.listen("move",this,this.move);
 		this._target = null;
 	}
 	
-	drop(event){
-	    event.preventDefault();
-	}
-	
-	dragOver(event){
-		event.preventDefault();
+	move(event){
+		if(this._target == null){
+			return;
+		}
 	    var container = this.get("container");
 	    var box = this.get("box");
 	    var topPos = event.getY() - container.getTop() - this._target.getY();
@@ -43,13 +39,17 @@ class DragAndDrop extends justright.Component{
 	    box.getStyleAttribute().set("left",leftPos);
 	}
 	
-	flash(event){
+	unselect(event){
+		if(this._target == null){
+			return;
+		}
 	    this.get("box").getStyleAttribute().set("background-color","red");
+	    this._target = null;
 	}
 	
-	target(event){
+	select(event){
+		this.get("box").getStyleAttribute().set("background-color","yellow");
 	    this._target = event.getTarget();
-	    return false;
 	}
 	
 	   
