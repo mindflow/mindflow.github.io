@@ -3,17 +3,17 @@ class DragAndDrop extends justright.Component{
 	constructor(){
 		super(justright.templates.get("DragAndDrop"));
 		justright.events.listen("select",this,this.select);
-		justright.events.listen("unselect",this,this.unselect);
+		justright.events.listenAfter("globalMouseup",this,this.unselect);
 		justright.events.listen("move",this,this.move);
 		this._target = null;
 	}
 	
 	move(event){
-		if(this._target == null){
+		if(this._target === null){
 			return;
 		}
 	    var container = this.get("container");
-	    var box = event.getTarget().getElement();
+	    var box = this._target.getElement();
 	    var topPos = event.getY() - container.getTop() - this._target.getY();
 	    var leftPos = event.getX() - container.getLeft() - this._target.getX();
 	    var topMax = container.getHeight() - box.getHeight();
@@ -24,11 +24,9 @@ class DragAndDrop extends justright.Component{
 	        return;
 	    }
 	    if(topPos < topMin){
-	        //console.log("Setting topMin");
 	    	topPos = topMin;
 	    }
 	    if(leftPos < leftMin){
-	        //console.log("Setting leftMin");
 	    	leftPos = leftMin;
 	    }
 	    if(topPos > topMax){
@@ -42,15 +40,18 @@ class DragAndDrop extends justright.Component{
 	}
 	
 	unselect(event){
-		if(this._target == null){
+		if(this._target === null){
 			return;
 		}
-		var box = event.getTarget().getElement();
+		var box = this._target.getElement();
 	    box.getStyleAttribute().set("background-color","red");
 	    this._target = null;
 	}
 	
 	select(event){
+	    if(this._target !== null){
+	        return;
+	    }
 	    var box = event.getTarget().getElement();
 		box.getStyleAttribute().set("background-color","yellow");
 	    this._target = event.getTarget();
