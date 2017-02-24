@@ -4,6 +4,8 @@ class DragAndDrop extends justright.Component{
 		super(justright.templates.get("DragAndDrop"));
 		justright.events.listen("select",this,this.select);
 		justright.events.listenAfter("globalMouseup",this,this.unselect);
+		justright.events.listenAfter("globalMousemove",this,this.move);
+		
 		justright.events.listen("move",this,this.move);
 		this._target = null;
 	}
