@@ -6,6 +6,7 @@ class ComponentBrowser extends justright.Component{
 		justright.events.listen("test",this,this.test);
 		
 		justright.events.listen("helloWorld",this,this.helloWorld);
+		justright.events.listen("createElement",this,this.createElement);
 		justright.events.listen("simpleEvent",this,this.simpleEvent);
 		justright.events.listen("addComponent",this,this.addComponent);
 		justright.events.listen("globalEvent",this,this.globalEvent);
@@ -28,6 +29,11 @@ class ComponentBrowser extends justright.Component{
 	helloWorld(){
 		this.clearChildren("result");
 		this.load('HelloWorld','HelloWorld','./demo-components/helloWorld/helloWorld.html','./demo-components/helloWorld/helloWorld.js');
+	}
+
+	createElement(){
+		this.clearChildren("result");
+		this.load('CreateElement','CreateElement','./demo-components/createElement/createElement.html','./demo-components/createElement/createElement.js');
 	}
 	
 	simpleEvent(){
