@@ -21,9 +21,10 @@ class InputModel extends justright.Component{
 	
 	check(event){
 		// Debugs the model with the view data
-		alert("Field1 : " + this._model._field1 + 
-				" Field2 : " + this._model._field2 +
-				" Field3 : " + this._model._field3);
+		this.get("modelDebug").addChild(JSON.stringify(this._model));
+		//alert("Field1 : " + this._model._field1 + 
+		//		" Field2 : " + this._model._field2 +
+		//		" Field3 : " + this._model._field3);
 	}
 	
 }
