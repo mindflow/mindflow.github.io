@@ -10,6 +10,7 @@ class ComponentBrowser extends justright.Component{
 		justright.events.listen("simpleEvent",this,this.simpleEvent);
 		justright.events.listen("addComponent",this,this.addComponent);
 		justright.events.listen("globalEvent",this,this.globalEvent);
+		justright.events.listen("inputModel",this,this.inputModel);
 		justright.events.listen("dragAndDrop",this,this.dragAndDrop);
 		
 		this._className = null;
@@ -51,6 +52,11 @@ class ComponentBrowser extends justright.Component{
 		this.load('GlobalEvent','GlobalEvent','./demo-components/globalEvent/globalEvent.html','./demo-components/globalEvent/globalEvent.js');
 	}
 
+	inputModel(){
+		this.clearChildren("result");
+		this.load('InputModel','InputModel','./demo-components/inputModel/inputModel.html','./demo-components/inputModel/inputModel.js');
+	}
+	
 	dragAndDrop(){
 		this.clearChildren("result");
 		this.load('DragAndDrop','DragAndDrop','./demo-components/dragAndDrop/dragAndDrop.html','./demo-components/dragAndDrop/dragAndDrop.js');
