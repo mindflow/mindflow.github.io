@@ -9,12 +9,14 @@ class InputModel extends justright.Component{
 		justright.inputs.map(this.get("input2"),this._model);
 		justright.inputs.map(this.get("input3"),this._model);
 		justright.inputs.map(this.get("input4"),this._model);
+		justright.inputs.map(this.get("input5"),this._model);
 	}
 	
 	reverseMap(){
 		this._model._field1 = "Reverse ABC";
 		this._model._field2 = "B";
-		this._model._field3 = "Reverse #?_";
+		this._model._field3 = "C";
+		this._model._field4 = "!¤#¤&#¤#&%&¤#/&¤#";
 		// Outputs model to view
 		justright.inputs.push();
 	}
@@ -35,6 +37,7 @@ class InputModel_Model{
 		this._field1 = null;
 		this._field2 = null;
 		this._field3 = null;
+		this._field4 = null;
 	}
 	
 }
