@@ -88,19 +88,19 @@ class ComponentBrowser extends justright.Component{
 
 	loadFiles(designUrl,codeUrl){
 		var obj = this;
-		jQuery.get(designUrl, function(designResult) {
+		qwest.get(designUrl).then(function(xhr,designResult){
 		    var code = ace.edit(obj.get("design").getMappedElement());
 		    code.setTheme("ace/theme/monokai");
 		    code.getSession().setMode("ace/mode/html");
 		    code.getSession().getDocument().setValue(designResult);
 		    
-			jQuery.get( codeUrl, function(codeResult) {
+		    qwest.get(codeUrl).then(function(xhr,codeResult){
 			    var design = ace.edit(obj.get("code").getMappedElement());
 			    design.setTheme("ace/theme/monokai");
 			    design.getSession().setMode("ace/mode/javascript");
 			    design.getSession().getDocument().setValue(codeResult);
-			},"text");
-		},"text");
+			});
+		});
 	}
 }
 

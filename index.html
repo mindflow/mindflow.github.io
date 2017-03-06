@@ -6,7 +6,7 @@
 	Loading...
 	</body>
 	<script src="./lib/promise.js" type="text/javascript" charset="utf-8"></script>
-	<script src="./lib/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./lib/qwest.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./lib/coreutil-browser.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./lib/xmlparser-browser.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./lib/justright-browser.js" type="text/javascript" charset="utf-8"></script>
@@ -17,14 +17,9 @@
 	<script src="./components/componentBrowser/componentBrowser.js" type="text/javascript" charset="utf-8"></script>
 	
 	<script type="text/javascript">
-		var loaded = false;
-		$(document).ajaxStop(function() {
-			if(!loaded){
-				var bodyElement = document.getElementById("body");
-				
-				bodyElement.parentNode.replaceChild(new ComponentBrowser().getRootElement().getMappedElement(), bodyElement);
-			}
-			loaded = true;
+		justright.templates.done(function() {
+			var bodyElement = document.getElementById("body");
+			bodyElement.parentNode.replaceChild(new ComponentBrowser().getRootElement().getMappedElement(), bodyElement);
 		});
 	</script>
 </html>
