@@ -23,7 +23,7 @@ class InputModel extends justright.Component{
 	
 	check(event){
 		// Debugs the model with the view data
-		this.get("modelDebug").addChild(JSON.stringify(this._model,undefined, 2));
+		this.get("modelDebug").setChild(JSON.stringify(this._model,undefined, 2));
 	}
 	
 }
