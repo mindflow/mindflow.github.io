@@ -4,7 +4,7 @@ class InputModel extends justright.Component{
 		super(justright.templates.get("InputModel"));
 		justright.events.listen("check",this,this.check);
 		justright.events.listen("reverseMap",this,this.reverseMap);
-		this._model = new InputModel_Model();
+		this._model = {};
 		this._mapper = justright.inputs.new(this._model)
 			.map(this.get("input1"))
 			.map(this.get("input2"))
@@ -26,10 +26,6 @@ class InputModel extends justright.Component{
 		// Debugs the model with the view data
 		this.get("modelDebug").setChild(JSON.stringify(this._model,undefined, 2));
 	}
-	
-}
-
-class InputModel_Model{
 	
 }
 
