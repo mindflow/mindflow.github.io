@@ -1,11 +1,39 @@
 <div class="row">
   <div class="columns large-6 medium-6 small-12">
-    <div>Field 1 <input id="input1" type="text" value="ABC" name="_field1"/></div>
-    <div>Field 2 <input id="input2" type="radio" value="A" checked name="_field2"/>A <input id="input3" type="radio" value="B" name="_field2"/>B</div>
-    <div>Field 3 <input id="input4" type="checkbox" value="C" name="_field3"/> C</div>
-    <div>Field 4 <textarea id="input5" name="_field4" style="height:100px">&#_"</textarea></div>
-    <button class="button" onclick="check">Check</button>
-    <button class="button" onclick="reverseMap">Reverse map</button>
+    <div class="row">
+      <div class="columns large-3 medium-3 small-3">
+        <div>Field 1</div>
+      </div>
+      <div class="columns large-9 medium-9 small-9">
+        <input id="input1" type="text" value="ABC" name="_field1"/>
+      </div>
+      
+      <div class="columns large-3 medium-3 small-3">
+        <div>Field 2</div>
+      </div>
+      <div class="columns large-9 medium-9 small-9">
+        <input id="input2" type="radio" value="A" checked name="_field2"/>A <input id="input3" type="radio" value="B" name="_field2"/>B
+      </div>
+      
+      <div class="columns large-3 medium-3 small-3">
+        <div>Field 3</div>
+      </div>
+      <div class="columns large-9 medium-9 small-9">
+        <input id="input4" type="checkbox" value="C" name="_field3"/> C
+      </div>
+      
+      <div class="columns large-3 medium-3 small-3">
+        <div>Field 4</div>
+      </div>
+      <div class="columns large-9 medium-9 small-9">
+        <textarea id="input5" name="_field4" style="height:100px">&#_"</textarea>
+      </div>
+      
+      <div class="columns large-12 medium-12 small-12">
+        <button class="button" onclick="check">Check</button>
+        <button class="button" onclick="reverseMap">Reverse map</button>
+      </div>
+    </div>
   </div>
   <div class="columns large-6 medium-6 small-12">
     <textarea id="modelDebug" style="height:150px"></textarea>
