@@ -1,7 +1,7 @@
-class DragAndDrop extends justright.Component{
+class DragAndDrop {
 	
 	constructor(){
-		super(justright.templates.get("DragAndDrop"));
+		this._component = new justright.Component(justright.templates.get("DragAndDrop"));
 		justright.events.listen("select",this,this.select);
 		justright.events.listenAfter("globalMouseup",this,this.unselect);
 		justright.events.listenAfter("globalMousemove",this,this.move);
@@ -10,11 +10,15 @@ class DragAndDrop extends justright.Component{
 		this._target = null;
 	}
 	
-	move(event){
+	getComponent(){
+		return this._component;
+	}
+	
+	move(event) {
 		if(this._target === null){
 			return;
 		}
-	    var container = this.get("container");
+	    var container = this._component.get("container");
 	    var box = this._target.getElement();
 	    var topPos = event.getY() - container.getTop() - this._target.getY();
 	    var leftPos = event.getX() - container.getLeft() - this._target.getX();

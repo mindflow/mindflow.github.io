@@ -1,10 +1,10 @@
-class GlobalEvent extends justright.Component{
+class GlobalEvent {
 	
 	constructor(owner){
-		super(justright.templates.get("GlobalEvent"));
+		this._component = new justright.Component(justright.templates.get("GlobalEvent"));
 		if(owner === undefined){
 			for(var i=0;i<10;i++) {
-				this.addChild("boxes",new GlobalEvent(this));
+				this._component.addChild("boxes",new GlobalEvent(this).getComponent());
 			}
 		}
 		justright.events.listen("selectClicked",this,this.selectBox);
@@ -12,12 +12,16 @@ class GlobalEvent extends justright.Component{
 		justright.events.listenBefore("selectClicked",this,this.unselectBox);
 	}
 	
+	getComponent(){
+		return this._component;
+	}
+	
 	selectBox(){
-		this.get("box").getStyleAttribute().set("background-color","red");
+		this._component.get("box").getStyleAttribute().set("background-color","red");
 	}
 	
 	unselectBox(){
-		this.get("box").getStyleAttribute().set("background-color","white");
+		this._component.get("box").getStyleAttribute().set("background-color","white");
 	}
 	
 }

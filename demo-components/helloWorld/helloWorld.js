@@ -1,8 +1,12 @@
-class HelloWorld extends justright.Component{
+class HelloWorld {
 	
 	constructor(){
-		super(justright.templates.get("HelloWorld"));
-		this.set("message","Hello world!");
+		this._component = new justright.Component(justright.templates.get("HelloWorld"));
+		this._component.set("message","Hello world!");
+	}
+	
+	getComponent(){
+		return this._component;
 	}
 	
 }

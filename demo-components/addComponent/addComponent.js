@@ -1,17 +1,23 @@
-class AddComponent extends justright.Component{
+class AddComponent{
 	
 	constructor(){
-		super(justright.templates.get("AddComponent"));
+		this._component = new justright.Component(justright.templates.get("AddComponent"));
+		console.log(this._component);
 		justright.events.listen("helloClicked",this,this.sayHello);
 		justright.events.listen("addComponentClicked",this,this.addComponent);
 	}
 	
+	getComponent(){
+		return this._component;
+	}
+	
 	sayHello(){
-		this.addChild("message","Hello world!");
+		this._component.addChild("message","Hello world!");
 	}
 	
 	addComponent(){
-		this.addChild("subComponent",new AddComponent());
+		var newComponent = new AddComponent();
+		this._component.addChild("subComponent",newComponent.getComponent());
 	}
 	
 }

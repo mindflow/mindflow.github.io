@@ -19,7 +19,7 @@
 	<script type="text/javascript">
 		justright.templates.done(function() {
 			var bodyElement = document.getElementById("body");
-			bodyElement.parentNode.replaceChild(new ComponentBrowser().getRootElement().getMappedElement(), bodyElement);
+			bodyElement.parentNode.replaceChild(new ComponentBrowser().getComponent().getRootElement().getMappedElement(), bodyElement);
 		});
 	</script>
 </html>
