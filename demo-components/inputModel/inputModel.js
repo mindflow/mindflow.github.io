@@ -5,12 +5,12 @@ class InputModel {
 		justright.events.listen("check",this,this.check);
 		justright.events.listen("reverseMap",this,this.reverseMap);
 		this._model = {};
-		this._mapper = justright.inputs.new(this._model)
-			.map(this._component.get("input1"))
-			.map(this._component.get("input2"))
-			.map(this._component.get("input3"))
-			.map(this._component.get("input4"))
-			.map(this._component.get("input5"));
+		this._mapper = justright.inputs.link(this._model)
+			.to(this._component.get("input1"))
+			.and(this._component.get("input2"))
+			.and(this._component.get("input3"))
+			.and(this._component.get("input4"))
+			.and(this._component.get("input5"));
 	}
 	
 	getComponent(){
