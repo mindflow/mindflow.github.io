@@ -1,7 +1,7 @@
 class AddComponent{
 	
 	constructor(){
-		this._component = new justright.Component(justright.templates.get("AddComponent"));
+		this._component = new justright.Component("AddComponent");
 		console.log(this._component);
 		justright.events.listen("helloClicked",this,this.sayHello);
 		justright.events.listen("addComponentClicked",this,this.addComponent);

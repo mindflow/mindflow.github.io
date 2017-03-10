@@ -1,7 +1,7 @@
 class DragAndDrop {
 	
 	constructor(){
-		this._component = new justright.Component(justright.templates.get("DragAndDrop"));
+		this._component = new justright.Component("DragAndDrop");
 		justright.events.listen("select",this,this.select);
 		justright.events.listenAfter("globalMouseup",this,this.unselect);
 		justright.events.listenAfter("globalMousemove",this,this.move);

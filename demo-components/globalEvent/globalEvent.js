@@ -1,7 +1,7 @@
 class GlobalEvent {
 	
 	constructor(owner){
-		this._component = new justright.Component(justright.templates.get("GlobalEvent"));
+		this._component = new justright.Component("GlobalEvent");
 		if(owner === undefined){
 			for(var i=0;i<10;i++) {
 				this._component.addChild("boxes",new GlobalEvent(this).getComponent());

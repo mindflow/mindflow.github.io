@@ -1,7 +1,7 @@
 class ComponentBrowser {
 	
 	constructor(){
-		this._component = new justright.Component(justright.templates.get("ComponentBrowser"));
+		this._component = new justright.Component("ComponentBrowser");
 		
 		justright.events.listen("test",this,this.test);
 		
@@ -86,7 +86,8 @@ class ComponentBrowser {
 	}
 
 	loadComponent(type, templateName){
-		justright.templates.set(templateName,ace.edit(this._component.get("design").getMappedElement()).getSession().getDocument().getValue());
+		var templateValue = ace.edit(this._component.get("design").getMappedElement()).getSession().getDocument().getValue();
+		justright.templates.set(templateName,new justright.Template(templateValue));
 		var obj = new type();
 		if(obj instanceof justright.Component){
 			this._component.setChild("result",(obj));

@@ -1,7 +1,7 @@
 class InputModel {
 	
 	constructor(){
-		this._component = new justright.Component(justright.templates.get("InputModel"));
+		this._component = new justright.Component("InputModel");
 		justright.events.listen("check",this,this.check);
 		justright.events.listen("reverseMap",this,this.reverseMap);
 		this._model = {};

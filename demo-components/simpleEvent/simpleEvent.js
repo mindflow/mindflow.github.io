@@ -1,12 +1,16 @@
-class SimpleEvent extends justright.Component{
+class SimpleEvent {
 	
 	constructor(){
-		super(justright.templates.get("SimpleEvent"));
+		this._component = new justright.Component("SimpleEvent");
 		justright.events.listen("helloClicked",this,this.sayHello);
 	}
 	
+	getComponent(){
+		return this._component;
+	}
+	
 	sayHello(){
-		this.addChild("message","Hello world!");
+		this._component.addChild("message","Hello world!");
 	}
 	
 }
