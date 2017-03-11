@@ -12,6 +12,8 @@ class ComponentBrowser {
 		justright.events.listen("globalEvent",this,this.globalEvent);
 		justright.events.listen("inputModel",this,this.inputModel);
 		justright.events.listen("dragAndDrop",this,this.dragAndDrop);
+		justright.events.listen("validationSimple",this,this.validationSimple);
+		justright.events.listen("validationWithSchema",this,this.validationWithSchema);
 		
 		this._className = null;
 		this._templateName = null;
@@ -59,6 +61,16 @@ class ComponentBrowser {
 	inputModel(){
 		this._component.clearChildren("result");
 		this.load('InputModel','InputModel','./demo-components/inputModel/inputModel.html','./demo-components/inputModel/inputModel.js');
+	}
+	
+	validationSimple(){
+		this._component.clearChildren("result");
+		this.load('ValidationSimple','ValidationSimple','./demo-components/validationSimple/validationSimple.html','./demo-components/validationSimple/validationSimple.js');
+	}
+	
+	validationWithSchema(){
+		this._component.clearChildren("result");
+		this.load('ValidationWithSchema','ValidationWithSchema','./demo-components/validationWithSchema/validationWithSchema.html','./demo-components/validationWithSchema/validationWithSchema.js');
 	}
 	
 	dragAndDrop(){
