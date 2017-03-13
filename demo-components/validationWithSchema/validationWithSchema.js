@@ -1,5 +1,5 @@
 class ValidationWithSchema {
-	
+
 	constructor(){
 		this._component = new justright.Component("ValidationWithSchema");
 		justright.events.listen("check",this,this.check);
@@ -9,7 +9,7 @@ class ValidationWithSchema {
 		this._mapper = justright.inputs.link(this._model, this._validator)
 			.to(this._component.get("input1"));
 	}
-	
+
 	getComponent(){
 		return this._component;
 	}
@@ -17,25 +17,25 @@ class ValidationWithSchema {
 }
 
 class ValidationWithSchema_Validator{
-	
+
 	constructor(model, component){
 		this._model = model;
 		this._component = component;
-		this._validation = jsen({ 
+		this._validation = jsen({
 			type: "object" , properties : {
 				_field1 : { type: "string", format: "email" }
 			}
 		},{ greedy: true });
 	}
-	
+
 	validate(inputField){
 		this._validation(this._model);
-		inputField.getStyleAttribute().set("background-color","lightgreen");
+		justright.StyleUtil.set(inputField,"background-color","lightgreen");
 		for(var i = 0; i<this._validation.errors.length; i++){
 		    var property = this._validation.errors[i];
-		    if(inputField.getAttributes().get("name") === property.path){
-		        inputField.getStyleAttribute().set("transition", "background-color 500ms linear");
-		    	inputField.getStyleAttribute().set("background-color","pink");
+		    if(inputField.getAttribute("name") === property.path){
+		        justright.StyleUtil.set(inputField,"transition", "background-color 500ms linear");
+		    	justright.StyleUtil.set(inputField,"background-color","pink");
 		    }
 		}
 	}

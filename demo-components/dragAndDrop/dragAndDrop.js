@@ -1,19 +1,19 @@
 class DragAndDrop {
-	
+
 	constructor(){
 		this._component = new justright.Component("DragAndDrop");
 		justright.events.listen("select",this,this.select);
 		justright.events.listenAfter("globalMouseup",this,this.unselect);
 		justright.events.listenAfter("globalMousemove",this,this.move);
-		
+
 		justright.events.listen("move",this,this.move);
 		this._target = null;
 	}
-	
+
 	getComponent(){
 		return this._component;
 	}
-	
+
 	move(event) {
 		if(this._target === null){
 			return;
@@ -41,28 +41,28 @@ class DragAndDrop {
 	    if(leftPos > leftMax){
 	    	leftPos = leftMax;
 	    }
-	    box.getStyleAttribute().set("top",topPos);
-	    box.getStyleAttribute().set("left",leftPos);
+	    StyleUtil.set(box,"top",topPos);
+	    StyleUtil.set(box,"left",leftPos);
 	}
-	
+
 	unselect(event){
 		if(this._target === null){
 			return;
 		}
 		var box = this._target.getElement();
-	    box.getStyleAttribute().set("background-color","red");
+	    StyleUtil.set(box,"background-color","red");
 	    this._target = null;
 	}
-	
+
 	select(event){
 	    if(this._target !== null){
 	        return;
 	    }
 	    var box = event.getTarget().getElement();
-		box.getStyleAttribute().set("background-color","yellow");
+		StyleUtil.set(box,"background-color","yellow");
 	    this._target = event.getTarget();
 	}
-	
-	   
+
+
 }
 justright.templates.load("DragAndDrop","./demo-components/dragAndDrop/dragAndDrop.html");

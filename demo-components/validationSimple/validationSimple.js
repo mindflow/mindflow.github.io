@@ -1,5 +1,5 @@
 class ValidationSimple {
-	
+
 	constructor(){
 		this._component = new justright.Component("ValidationSimple");
 		this._model = {};
@@ -7,24 +7,24 @@ class ValidationSimple {
 		this._mapper = justright.inputs.link(this._model, this._validator)
 			.to(this._component.get("input1"));
 	}
-	
+
 	getComponent(){
 		return this._component;
 	}
-	
+
 }
 
 class ValidationSimple_Validator{
-	
+
 	constructor(model, component){
 		this._model = model;
 		this._component = component;
 	}
-	
+
 	validate(inputField){
-		inputField.getStyleAttribute().set("background-color","white");
+		justright.StyleUtil.set(inputField,"background-color","white");
 		if(inputField.getMappedElement().value === ""){
-	    	inputField.getStyleAttribute().set("background-color","red");
+	    	justright.StyleUtil.set(inputField,"background-color","red");
 		}
 	}
 }
