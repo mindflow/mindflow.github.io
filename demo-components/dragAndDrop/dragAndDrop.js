@@ -41,8 +41,8 @@ class DragAndDrop {
 	    if(leftPos > leftMax){
 	    	leftPos = leftMax;
 	    }
-	    StyleUtil.set(box,"top",topPos);
-	    StyleUtil.set(box,"left",leftPos);
+	    justright.StyleUtil.set(box,"top",topPos);
+	    justright.StyleUtil.set(box,"left",leftPos);
 	}
 
 	unselect(event){
@@ -50,7 +50,7 @@ class DragAndDrop {
 			return;
 		}
 		var box = this._target.getElement();
-	    StyleUtil.set(box,"background-color","red");
+	    justright.StyleUtil.set(box,"background-color","red");
 	    this._target = null;
 	}
 
@@ -59,7 +59,7 @@ class DragAndDrop {
 	        return;
 	    }
 	    var box = event.getTarget().getElement();
-		StyleUtil.set(box,"background-color","yellow");
+		justright.StyleUtil.set(box,"background-color","yellow");
 	    this._target = event.getTarget();
 	}
 
