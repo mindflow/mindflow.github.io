@@ -23,7 +23,7 @@ class ValidationSimple_Validator{
 
 	validate(inputField){
 		justright.StyleUtil.set(inputField,"background-color","white");
-		if(inputField.getMappedElement().value === ""){
+		if(inputField.getValue() === ""){
 	    	justright.StyleUtil.set(inputField,"background-color","red");
 		}
 	}
