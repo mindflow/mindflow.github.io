@@ -22,9 +22,9 @@ class ValidationSimple_Validator{
 	}
 
 	validate(inputField){
-		justright.StyleUtil.set(inputField,"background-color","white");
+		inputField.setStyle("background-color","white");
 		if(inputField.getValue() === ""){
-	    	justright.StyleUtil.set(inputField,"background-color","red");
+	    	inputField.setStyle("background-color","red");
 		}
 	}
 }

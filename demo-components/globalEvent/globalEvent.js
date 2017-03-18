@@ -17,11 +17,11 @@ class GlobalEvent {
 	}
 
 	selectBox(){
-		justright.StyleUtil.set(this._component.get("box"),"background-color","red");
+		this._component.get("box").setStyle("background-color","red");
 	}
 
 	unselectBox(){
-		justright.StyleUtil.set(this._component.get("box"),"background-color","white");
+		this._component.get("box").setStyle("background-color","white");
 	}
 
 }

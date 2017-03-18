@@ -7,7 +7,7 @@ class DragAndDrop {
 		justright.events.listenAfter("globalMousemove",this,this.move);
 
 		justright.events.listen("move",this,this.move);
-		this._target = null;
+		this._selection = null;
 	}
 
 	getComponent(){
@@ -15,18 +15,18 @@ class DragAndDrop {
 	}
 
 	move(event) {
-		if(this._target === null){
+		if(this._selection === null){
 			return;
 		}
 	    var container = this._component.get("container");
-	    var box = this._target.getElement();
-	    var topPos = event.getY() - container.getTop() - this._target.getY();
-	    var leftPos = event.getX() - container.getLeft() - this._target.getX();
+	    var box = this._selection.getTarget();
+	    var topPos = event.getClientY() - container.getTop() - this._selection.getOffsetY();
+	    var leftPos = event.getClientX() - container.getLeft() - this._selection.getOffsetX();
 	    var topMax = container.getHeight() - box.getHeight();
 	    var leftMax = container.getWidth() - box.getWidth();
 	    var topMin = 0;
 	    var leftMin = 0;
-	    if(event.getY() === 0 || event.getX() === 0){
+	    if(event.getClientY() === 0 || event.getClientX() === 0){
 	        return;
 	    }
 	    if(topPos < topMin){
@@ -41,26 +41,26 @@ class DragAndDrop {
 	    if(leftPos > leftMax){
 	    	leftPos = leftMax;
 	    }
-	    justright.StyleUtil.set(box,"top",topPos);
-	    justright.StyleUtil.set(box,"left",leftPos);
+	    box.setStyle("top",topPos);
+	    box.setStyle("left",leftPos);
 	}
 
 	unselect(event){
-		if(this._target === null){
+		if(this._selection === null){
 			return;
 		}
-		var box = this._target.getElement();
-	    justright.StyleUtil.set(box,"background-color","red");
-	    this._target = null;
+		var box = this._selection.getTarget();
+	    box.setStyle("background-color","red");
+	    this._selection = null;
 	}
 
 	select(event){
-	    if(this._target !== null){
+	    if(this._selection !== null){
 	        return;
 	    }
-	    var box = event.getTarget().getElement();
-		justright.StyleUtil.set(box,"background-color","yellow");
-	    this._target = event.getTarget();
+	    var box = event.getTarget();
+		box.setStyle("background-color","yellow");
+	    this._selection = event;
 	}
 
 

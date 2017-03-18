@@ -30,12 +30,12 @@ class ValidationWithSchema_Validator{
 
 	validate(inputField){
 		this._validation(this._model);
-		justright.StyleUtil.set(inputField,"background-color","lightgreen");
+		inputField.setStyle("background-color","lightgreen");
 		for(var i = 0; i<this._validation.errors.length; i++){
 		    var property = this._validation.errors[i];
 		    if(inputField.getAttribute("name") === property.path){
-		        justright.StyleUtil.set(inputField,"transition", "background-color 500ms linear");
-		    	justright.StyleUtil.set(inputField,"background-color","pink");
+		        inputField.setStyle("transition", "background-color 500ms linear");
+		    	inputField.setStyle("background-color","pink");
 		    }
 		}
 	}
