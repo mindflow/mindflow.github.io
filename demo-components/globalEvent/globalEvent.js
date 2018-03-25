@@ -7,9 +7,9 @@ class GlobalEvent {
 				this._component.addChild("boxes",new GlobalEvent(this).getComponent());
 			}
 		}
-		justright.events.listen("selectClicked",this,this.selectBox);
-		justright.events.listen("enableClicked",this,this.selectBox);
-		justright.events.listenBefore("selectClicked",this,this.unselectBox);
+		justright.eventRegistry.listen("//event:selectClicked",this,this.selectBox);
+		justright.eventRegistry.listen("//event:enableClicked",this,this.selectBox);
+		justright.eventRegistry.listenBefore("//event:selectClicked",this,this.unselectBox);
 	}
 
 	getComponent(){

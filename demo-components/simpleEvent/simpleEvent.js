@@ -2,7 +2,7 @@ class SimpleEvent {
 	
 	constructor(){
 		this._component = new justright.Component("SimpleEvent");
-		justright.events.listen("helloClicked",this,this.sayHello);
+		justright.eventRegistry.listen("//event:helloClicked",this,this.sayHello);
 	}
 	
 	getComponent(){

@@ -2,8 +2,8 @@ class ValidationWithSchema {
 
 	constructor(){
 		this._component = new justright.Component("ValidationWithSchema");
-		justright.events.listen("check",this,this.check);
-		justright.events.listen("reverseMap",this,this.reverseMap);
+		justright.eventRegistry.listen("//event:check",this,this.check);
+		justright.eventRegistry.listen("//event:reverseMap",this,this.reverseMap);
 		this._model = {};
 		this._validator = new ValidationWithSchema_Validator(this._model,this._component);
 		this._mapper = justright.inputs.link(this._model, this._validator)
@@ -33,7 +33,7 @@ class ValidationWithSchema_Validator{
 		inputField.setStyle("background-color","lightgreen");
 		for(var i = 0; i<this._validation.errors.length; i++){
 		    var property = this._validation.errors[i];
-		    if(inputField.getAttribute("name") === property.path){
+		    if(inputField.getAttributeValue("name") === property.path){
 		        inputField.setStyle("transition", "background-color 500ms linear");
 		    	inputField.setStyle("background-color","pink");
 		    }

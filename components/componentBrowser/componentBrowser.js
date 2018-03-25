@@ -2,18 +2,18 @@ class ComponentBrowser {
 
 	constructor(){
 		this._component = new justright.Component("ComponentBrowser");
+		
+		justright.eventRegistry.listen("//event:test",this,this.test);
 
-		justright.events.listen("test",this,this.test);
-
-		justright.events.listen("helloWorld",this,this.helloWorld);
-		justright.events.listen("createElement",this,this.createElement);
-		justright.events.listen("simpleEvent",this,this.simpleEvent);
-		justright.events.listen("addComponent",this,this.addComponent);
-		justright.events.listen("globalEvent",this,this.globalEvent);
-		justright.events.listen("inputModel",this,this.inputModel);
-		justright.events.listen("dragAndDrop",this,this.dragAndDrop);
-		justright.events.listen("validationSimple",this,this.validationSimple);
-		justright.events.listen("validationWithSchema",this,this.validationWithSchema);
+		justright.eventRegistry.listen("//event:helloWorld",this,this.helloWorld);
+		justright.eventRegistry.listen("//event:createElement",this,this.createElement);
+		justright.eventRegistry.listen("//event:simpleEvent",this,this.simpleEvent);
+		justright.eventRegistry.listen("//event:addComponent",this,this.addComponent);
+		justright.eventRegistry.listen("//event:globalEvent",this,this.globalEvent);
+		justright.eventRegistry.listen("//event:inputModel",this,this.inputModel);
+		justright.eventRegistry.listen("//event:dragAndDrop",this,this.dragAndDrop);
+		justright.eventRegistry.listen("//event:validationSimple",this,this.validationSimple);
+		justright.eventRegistry.listen("//event:validationWithSchema",this,this.validationWithSchema);
 
 		this._className = null;
 		this._templateName = null;

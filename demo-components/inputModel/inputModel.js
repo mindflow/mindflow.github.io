@@ -2,8 +2,8 @@ class InputModel {
 
 	constructor(){
 		this._component = new justright.Component("InputModel");
-		justright.events.listen("check",this,this.check);
-		justright.events.listen("reverseMap",this,this.reverseMap);
+		justright.eventRegistry.listen("//event:check",this,this.check);
+		justright.eventRegistry.listen("//event:reverseMap",this,this.reverseMap);
 		this._model = {};
 		this._mapper = justright.inputs.link(this._model)
 			.to(this._component.get("input1"))

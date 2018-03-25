@@ -3,8 +3,8 @@ class HelloWorld extends justright.Component {
 	constructor() {
 		super(justright.templates.get("HelloWorld"));
 		this.setChild("textValue","Hello");
-		justright.events.listen("myEvent1", this, this.myEvent1);
-		justright.events.listen("myEvent2", this, this.myEvent2);
+		justright.eventRegistry.listen("myEvent1", this, this.myEvent1);
+		justright.eventRegistry.listen("myEvent2", this, this.myEvent2);
 	}
 	
 	myEvent1(event){

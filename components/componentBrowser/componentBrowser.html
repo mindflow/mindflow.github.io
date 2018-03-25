@@ -1,4 +1,4 @@
-<body onmouseup="globalMouseup" onmousemove="globalMousemove">
+<body onmouseup="//event:globalMouseup" onmousemove="//event:globalMousemove">
     <div class="row" style="background-color:#6f6f6f;color:white">
 		<div class="columns small-12">
 		  Design
@@ -7,15 +7,15 @@
     <div class="row" style="background-color:#efefef;padding-top:10px;">
 		<div class="columns small-12 medium-3 large-3">
 			<ul class="menu vertical">
-				<li><a id="helloWorldLink" onclick="helloWorld">Hello World</a></li>
-				<li><a id="createElementLink" onclick="createElement">Create Element</a></li>
-				<li><a id="simpleEventLink" onclick="simpleEvent">Simple click event</a></li>
-				<li><a id="AddComponentLink" onclick="addComponent">Add component</a></li>
-				<li><a id="GlobalEventLink" onclick="globalEvent">Global event</a></li>
-				<li><a id="InputModelLink" onclick="inputModel">Input model</a></li>
-				<li><a id="ValidationSimple" onclick="validationSimple">Simple validation</a></li>
-				<li><a id="ValidationSimple" onclick="validationWithSchema">Validation with schema</a></li>
-				<li><a id="DragAndDropLink" onclick="dragAndDrop">Drag and drop</a></li>
+				<li><a id="helloWorldLink" onclick="//event:helloWorld">Hello World</a></li>
+				<li><a id="createElementLink" onclick="//event:createElement">Create Element</a></li>
+				<li><a id="simpleEventLink" onclick="//event:simpleEvent">Simple click event</a></li>
+				<li><a id="AddComponentLink" onclick="//event:addComponent">Add component</a></li>
+				<li><a id="GlobalEventLink" onclick="//event:globalEvent">Global event</a></li>
+				<li><a id="InputModelLink" onclick="//event:inputModel">Input model</a></li>
+				<li><a id="ValidationSimple" onclick="//event:validationSimple">Simple validation</a></li>
+				<li><a id="ValidationSimple" onclick="//event:validationWithSchema">Validation with schema</a></li>
+				<li><a id="DragAndDropLink" onclick="//event:dragAndDrop">Drag and drop</a></li>
 			</ul>
 		</div>	
 		<div class="columns small-12 medium-9 large-9">
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="columns small-12 medium-9 large-9">
-		  <button id="testButton" class="success button" onclick="test">Test</button>
+		  <button id="testButton" class="success button" onclick="//event:test">Test</button>
 		  <div id="result" style="height:300px;width:100%;overflow-y:scroll;overflow-x:hidden;">
 		  
 		  </div>

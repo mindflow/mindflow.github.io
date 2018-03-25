@@ -2,11 +2,11 @@ class DragAndDrop {
 
 	constructor(){
 		this._component = new justright.Component("DragAndDrop");
-		justright.events.listen("select",this,this.select);
-		justright.events.listenAfter("globalMouseup",this,this.unselect);
-		justright.events.listenAfter("globalMousemove",this,this.move);
+		justright.eventRegistry.listen("//event:select",this,this.select);
+		justright.eventRegistry.listenAfter("//event:globalMouseup",this,this.unselect);
+		justright.eventRegistry.listenAfter("//event:globalMousemove",this,this.move);
 
-		justright.events.listen("move",this,this.move);
+		justright.eventRegistry.listen("//event:move",this,this.move);
 		this._selection = null;
 	}
 
@@ -20,8 +20,8 @@ class DragAndDrop {
 		}
 	    var container = this._component.get("container");
 	    var box = this._selection.getTarget();
-	    var topPos = event.getClientY() - container.getTop() - this._selection.getOffsetY();
-	    var leftPos = event.getClientX() - container.getLeft() - this._selection.getOffsetX();
+	    var topPos = event.getClientY() - container.getTop() - this._offsetY;
+	    var leftPos = event.getClientX() - container.getLeft() - this._offsetX;
 	    var topMax = container.getHeight() - box.getHeight();
 	    var leftMax = container.getWidth() - box.getWidth();
 	    var topMin = 0;
@@ -61,6 +61,8 @@ class DragAndDrop {
 	    var box = event.getTarget();
 		box.setStyle("background-color","yellow");
 	    this._selection = event;
+	    this._offsetX = event.getOffsetX();
+	    this._offsetY = event.getOffsetY();
 	}
 
 
